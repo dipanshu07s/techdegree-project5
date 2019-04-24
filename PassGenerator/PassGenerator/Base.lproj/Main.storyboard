@@ -27,18 +27,30 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NDg-Rf-d6Y">
                                                 <rect key="frame" x="0.0" y="0.0" width="181.5" height="111"/>
                                                 <state key="normal" title="Guest"/>
+                                                <connections>
+                                                    <action selector="selectPassType:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Inq-vy-2oc"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PGf-Wr-VZP">
                                                 <rect key="frame" x="212.5" y="0.0" width="181" height="111"/>
                                                 <state key="normal" title="Employee"/>
+                                                <connections>
+                                                    <action selector="selectPassType:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cCA-ql-bWG"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zQw-kP-qpu">
                                                 <rect key="frame" x="424.5" y="0.0" width="181.5" height="111"/>
                                                 <state key="normal" title="Manager"/>
+                                                <connections>
+                                                    <action selector="selectPassType:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SXR-il-ub1"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gsc-Le-4K0">
                                                 <rect key="frame" x="637" y="0.0" width="181" height="111"/>
                                                 <state key="normal" title="Vendor"/>
+                                                <connections>
+                                                    <action selector="selectPassType:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PIl-An-fwu"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -46,20 +58,39 @@
                                         <rect key="frame" x="0.0" y="146" width="818" height="111.5"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k21-NZ-YKW">
-                                                <rect key="frame" x="0.0" y="0.0" width="181.5" height="111.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="139" height="111.5"/>
                                                 <state key="normal" title="Child"/>
+                                                <connections>
+                                                    <action selector="selectedSubCategory:" destination="BYZ-38-t0r" eventType="touchUpInside" id="F72-qH-ZHj"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nfi-3S-y2n">
-                                                <rect key="frame" x="212.5" y="0.0" width="181" height="111.5"/>
+                                                <rect key="frame" x="170" y="0.0" width="138.5" height="111.5"/>
                                                 <state key="normal" title="Adult"/>
+                                                <connections>
+                                                    <action selector="selectedSubCategory:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MF4-kC-dlh"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ITM-74-FQh">
-                                                <rect key="frame" x="424.5" y="0.0" width="181.5" height="111.5"/>
+                                                <rect key="frame" x="339.5" y="0.0" width="139" height="111.5"/>
                                                 <state key="normal" title="Senior"/>
+                                                <connections>
+                                                    <action selector="selectedSubCategory:" destination="BYZ-38-t0r" eventType="touchUpInside" id="q8A-hK-sVs"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F2O-FD-M9V">
+                                                <rect key="frame" x="509.5" y="0.0" width="138.5" height="111.5"/>
+                                                <state key="normal" title="Season"/>
+                                                <connections>
+                                                    <action selector="selectedSubCategory:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nqJ-Ml-9NO"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QoC-Ob-EiZ">
-                                                <rect key="frame" x="637" y="0.0" width="181" height="111.5"/>
+                                                <rect key="frame" x="679" y="0.0" width="139" height="111.5"/>
                                                 <state key="normal" title="VIP"/>
+                                                <connections>
+                                                    <action selector="selectedSubCategory:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ebm-v0-OyR"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -75,7 +106,7 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="T0q-0c-T98">
+                                                    <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="T0q-0c-T98">
                                                         <rect key="frame" x="0.0" y="65" width="242.5" height="46"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -92,7 +123,7 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dnx-c6-EPR">
+                                                    <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dnx-c6-EPR">
                                                         <rect key="frame" x="0.0" y="65" width="243" height="46"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -109,7 +140,7 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kAd-SY-2FR">
+                                                    <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kAd-SY-2FR">
                                                         <rect key="frame" x="0.0" y="65" width="242.5" height="46"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -131,7 +162,7 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="msZ-bC-nRN">
+                                                    <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="msZ-bC-nRN">
                                                         <rect key="frame" x="0.0" y="65" width="393" height="46"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -148,7 +179,7 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xKq-jx-EdP">
+                                                    <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xKq-jx-EdP">
                                                         <rect key="frame" x="0.0" y="65" width="393" height="46"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -167,7 +198,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jIp-O4-kPz">
+                                            <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jIp-O4-kPz">
                                                 <rect key="frame" x="0.0" y="65" width="818" height="46"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -184,7 +215,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OQD-Kl-CaR">
+                                            <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OQD-Kl-CaR">
                                                 <rect key="frame" x="0.0" y="65" width="818" height="46.5"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -204,7 +235,7 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gfD-PF-zAh">
+                                                    <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gfD-PF-zAh">
                                                         <rect key="frame" x="0.0" y="65" width="250.5" height="46"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -221,7 +252,7 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0Rw-YT-27X">
+                                                    <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0Rw-YT-27X">
                                                         <rect key="frame" x="0.0" y="65" width="251" height="46"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -238,7 +269,7 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lTr-gq-PRU">
+                                                    <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lTr-gq-PRU">
                                                         <rect key="frame" x="0.0" y="65" width="250.5" height="46"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -297,6 +328,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="119" y="16"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="YKb-6a-zpf">

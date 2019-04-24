@@ -8,29 +8,8 @@
 
 import Foundation
 
-extension VendorType {
-    func areaAccess() -> [AreaAccess] {
-        switch self {
-        case .vendor(company: "Acme"): return [.kitchen, .maintenance]
-        case .vendor(company: "Orkin"): return [.amusement, .rideControl, .kitchen]
-        case .vendor(company: "Fedex"): return [.maintenance, .office]
-        case .vendor(company: "NW Eletrical"): return [.amusement, .rideControl, .kitchen, .maintenance, .office]
-        default: return []
-        }
-    }
-    
-    func rideAccess() -> [RideAccess] {
-        return []
-    }
-    
-    func discounts() -> [Discounts] {
-        return []
-    }
-}
-
 class Vendor: Person {
-    let personType: PersonType = .vendor
-    var vendorType: VendorType
+    var vendorType: PassType
     
     init(firstName: String, lastName: String, dateOfBirth: Date, company: String) {
         vendorType = .vendor(company: company)

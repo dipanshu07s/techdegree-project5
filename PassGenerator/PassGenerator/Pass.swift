@@ -51,6 +51,33 @@ struct Pass {
         return AmusementParkPass(entrant: guest, areaAccess: guestAreaAccess, rideAccess: guestRideAccess, discounts: guestDiscount)
     }
     
+    static func createSeasonGuestPassWith(firstName: String?, lastName: String?, streetAddress: String?, city: String?, state: String?, zipCode: Int?) throws -> AmusementParkPass {
+        guard let firstName = firstName else { throw PassError.firstNameMissing }
+        guard let lastName = lastName else { throw PassError.lastNameMissing }
+        guard let streetAddress = streetAddress else { throw PassError.streetAddressMissing }
+        guard let city = city else { throw PassError.cityMissing }
+        guard let state = state else { throw PassError.stateMissing }
+        guard let zipCode = zipCode else { throw PassError.zipcodeMissing }
+        
+        let guest = SeasonGuest(firstName: firstName, lastName: lastName, streetAddress: streetAddress, city: city, state: state, zipCode: zipCode)
+        let guestAreaAccess = guest.guestType.areaAccess()
+        let guestRideAccess = guest.guestType.rideAccess()
+        let guestDiscount = guest.guestType.discounts()
+        return AmusementParkPass(entrant: guest, areaAccess: guestAreaAccess, rideAccess: guestRideAccess, discounts: guestDiscount)
+    }
+    
+    static func createSeniorGuestPassWith(firstName: String?, lastName: String?, dateOfBirth: Date?) throws -> AmusementParkPass {
+        guard let firstName = firstName else { throw PassError.firstNameMissing }
+        guard let lastName = lastName else { throw PassError.lastNameMissing }
+        guard let dateOfBirth = dateOfBirth else { throw PassError.dateOfBirthMissing }
+        
+        let guest = SeniorGuest(firstName: firstName, lastName: lastName, dateOfBirth: dateOfBirth)
+        let guestAreaAccess = guest.guestType.areaAccess()
+        let guestRideAccess = guest.guestType.rideAccess()
+        let guestDiscount = guest.guestType.discounts()
+        return AmusementParkPass(entrant: guest, areaAccess: guestAreaAccess, rideAccess: guestRideAccess, discounts: guestDiscount)
+    }
+    
     static func createFoodServiceEmployeeWith(firstName: String?, lastName: String?, streetAddress: String?, city: String?, state: String?, zipCode: Int?) throws -> AmusementParkPass {
         guard let firstName = firstName else { throw PassError.firstNameMissing }
         guard let lastName = lastName else { throw PassError.lastNameMissing }
@@ -96,6 +123,22 @@ struct Pass {
         return AmusementParkPass(entrant: guest, areaAccess: guestAreaAccess, rideAccess: guestRideAccess, discounts: guestDiscount)
     }
     
+    static func createContractEmployeeWith(firstName: String?, lastName: String?, project: Int?, streetAddress: String?, city: String?, state: String?, zipCode: Int?) throws -> AmusementParkPass {
+        guard let firstName = firstName else { throw PassError.firstNameMissing }
+        guard let lastName = lastName else { throw PassError.lastNameMissing }
+        guard let streetAddress = streetAddress else { throw PassError.streetAddressMissing }
+        guard let city = city else { throw PassError.cityMissing }
+        guard let state = state else { throw PassError.stateMissing }
+        guard let zipCode = zipCode else { throw PassError.zipcodeMissing }
+        guard let project = project else { throw PassError.projectMissing }
+        
+        let guest = ContractEmployee(firstName: firstName, lastName: lastName, project: project, streetAddress: streetAddress, city: city, state: state, zipCode: zipCode)
+        let guestAreaAccess = guest.employeeType.areaAccess()
+        let guestRideAccess = guest.employeeType.rideAccess()
+        let guestDiscount = guest.employeeType.discounts()
+        return AmusementParkPass(entrant: guest, areaAccess: guestAreaAccess, rideAccess: guestRideAccess, discounts: guestDiscount)
+    }
+    
     static func createManagerWith(firstName: String?, lastName: String?, streetAddress: String?, city: String?, state: String?, zipCode: Int?) throws -> AmusementParkPass {
         guard let firstName = firstName else { throw PassError.firstNameMissing }
         guard let lastName = lastName else { throw PassError.lastNameMissing }
@@ -108,6 +151,19 @@ struct Pass {
         let guestAreaAccess = guest.managerType.areaAccess()
         let guestRideAccess = guest.managerType.rideAccess()
         let guestDiscount = guest.managerType.discounts()
+        return AmusementParkPass(entrant: guest, areaAccess: guestAreaAccess, rideAccess: guestRideAccess, discounts: guestDiscount)
+    }
+    
+    static func createVendorWith(firstName: String?, lastName: String?, company: String?, dateOfBirth: Date?) throws -> AmusementParkPass {
+        guard let firstName = firstName else { throw PassError.firstNameMissing }
+        guard let lastName = lastName else { throw PassError.lastNameMissing }
+        guard let company = company else { throw PassError.companyMissing }
+        guard let dateOfBirth = dateOfBirth else { throw PassError.dateOfBirthMissing }
+        
+        let guest = Vendor(firstName: firstName, lastName: lastName, dateOfBirth: dateOfBirth, company: company)
+        let guestAreaAccess = guest.vendorType.areaAccess()
+        let guestRideAccess = guest.vendorType.rideAccess()
+        let guestDiscount = guest.vendorType.discounts()
         return AmusementParkPass(entrant: guest, areaAccess: guestAreaAccess, rideAccess: guestRideAccess, discounts: guestDiscount)
     }
 }

@@ -8,37 +8,7 @@
 
 import Foundation
 
-extension EmployeeType {
-    func areaAccess() -> [AreaAccess] {
-        switch self {
-        case .foodService: return [.amusement, .kitchen]
-        case .rideService, .contract(project: 1001): return [.amusement, .rideControl]
-        case .maintenance: return [.amusement, .kitchen, .rideControl, .maintenance]
-        case .contract(project: 1002) : return [.amusement, .rideControl, .maintenance]
-        case .contract(project: 1003): return [.amusement, .rideControl, .kitchen, .office]
-        case .contract(project: 2001): return [.office]
-        case .contract(project: 2002): return [.kitchen, .maintenance]
-        default: return []
-        }
-    }
-    
-    func rideAccess() -> [RideAccess] {
-        switch self {
-        case .foodService, .rideService, .maintenance: return [.allRides]
-        default: return []
-        }
-    }
-    
-    func discounts() -> [Discounts] {
-        switch self {
-        case .foodService, .rideService, .maintenance: return [.food(percentage: 15), .merchandise(percentage: 25)]
-        default: return []
-        }
-    }
-}
-
 class Employee: Person {
-    let PersonType: PersonType = .employee
     
     init(firstName: String, lastName: String, streetAddress: String, city: String, state: String, zipCode: Int) {
         super.init(firstName: firstName, lastName: lastName, dateOfBirth: nil, ssn: nil, project: nil, company: nil, streetAddress: streetAddress, city: city, state: state, zipCode: zipCode)
@@ -46,19 +16,19 @@ class Employee: Person {
 }
 
 class FoodServiceEmployee: Employee {
-    let employeeType: EmployeeType = .foodService
+    let employeeType: PassType = .foodService
 }
 
 class RideServiceEmployee: Employee {
-    let employeeType: EmployeeType = .rideService
+    let employeeType: PassType = .rideService
 }
 
 class MaintenanceEmployee: Employee {
-    let employeeType: EmployeeType = .maintenance
+    let employeeType: PassType = .maintenance
 }
 
 class ContractEmployee: Employee {
-    let employeeType: EmployeeType
+    let employeeType: PassType
     
     init(firstName: String, lastName: String, project: Int, streetAddress: String, city: String, state: String, zipCode: Int) {
         employeeType = .contract(project: project)
