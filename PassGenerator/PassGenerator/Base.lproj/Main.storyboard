@@ -287,7 +287,7 @@
                                                 <state key="normal" title="Generate Pass"/>
                                                 <connections>
                                                     <action selector="generatePass:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3Yv-x5-okg"/>
-                                                    <segue destination="fVb-ys-Mjy" kind="show" id="STD-2C-z4v"/>
+                                                    <segue destination="fVb-ys-Mjy" kind="show" identifier="PassDetail" id="STD-2C-z4v"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dik-b8-50y">
@@ -330,20 +330,192 @@
             </objects>
             <point key="canvasLocation" x="119" y="16"/>
         </scene>
-        <!--View Controller-->
+        <!--Pass Detail View Controller-->
         <scene sceneID="YKb-6a-zpf">
             <objects>
-                <viewController id="fVb-ys-Mjy" sceneMemberID="viewController">
+                <viewController id="fVb-ys-Mjy" customClass="PassDetailViewController" customModule="PassGenerator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wTZ-Rt-ces">
                         <rect key="frame" x="0.0" y="0.0" width="834" height="1194"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7eV-Ie-PDn">
+                                <rect key="frame" x="58" y="100" width="714" height="342"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="FaceImageAsset" translatesAutoresizingMaskIntoConstraints="NO" id="siw-Mg-6dW">
+                                        <rect key="frame" x="25" y="68" width="288" height="206"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2T4-Pp-rc5">
+                                        <rect key="frame" x="321" y="68" width="45" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Child Guest Pass" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9mc-19-3eB">
+                                        <rect key="frame" x="321" y="97" width="130" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Unlimited Rides" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AWh-GB-piP">
+                                        <rect key="frame" x="307" y="183" width="120" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="10% Food Discount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1PR-4h-t8U">
+                                        <rect key="frame" x="312" y="212" width="148" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="20% Merch Discount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nuh-x2-4hf">
+                                        <rect key="frame" x="312" y="241" width="160" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Enk-gE-1Ba">
+                                <rect key="frame" x="359" y="1108" width="117" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Create New Pass"/>
+                                <connections>
+                                    <action selector="createNewPass:" destination="fVb-ys-Mjy" eventType="touchUpInside" id="D2k-5i-wLd"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YN4-n2-rvR">
+                                <rect key="frame" x="58" y="865" width="714" height="209"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Test Results" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="79s-at-15d">
+                                        <rect key="frame" x="311" y="94" width="93" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="gUN-vK-ORU">
+                                <rect key="frame" x="184" y="738" width="458" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bMM-1Y-owF">
+                                        <rect key="frame" x="0.0" y="0.0" width="83" height="30"/>
+                                        <state key="normal" title="Amusement"/>
+                                        <connections>
+                                            <action selector="swipe:" destination="fVb-ys-Mjy" eventType="touchUpInside" id="BtZ-oW-Lo6"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bZg-ph-Orl">
+                                        <rect key="frame" x="133" y="0.0" width="52" height="30"/>
+                                        <state key="normal" title="Kitchen"/>
+                                        <connections>
+                                            <action selector="swipe:" destination="fVb-ys-Mjy" eventType="touchUpInside" id="cJS-pq-2aV"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3zW-q9-r4c">
+                                        <rect key="frame" x="235" y="0.0" width="85" height="30"/>
+                                        <state key="normal" title="Ride Control"/>
+                                        <connections>
+                                            <action selector="swipe:" destination="fVb-ys-Mjy" eventType="touchUpInside" id="e8N-Cq-ufQ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mOQ-1c-J6t">
+                                        <rect key="frame" x="370" y="0.0" width="88" height="30"/>
+                                        <state key="normal" title="Maintenance"/>
+                                        <connections>
+                                            <action selector="swipe:" destination="fVb-ys-Mjy" eventType="touchUpInside" id="idY-Tq-j9t"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Access Testing" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UQq-Vc-NXt">
+                                <rect key="frame" x="359" y="587" width="115" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="AVm-r1-FYl">
+                                <rect key="frame" x="184" y="798" width="484" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j4f-00-jB6">
+                                        <rect key="frame" x="0.0" y="0.0" width="42" height="30"/>
+                                        <state key="normal" title="Office"/>
+                                        <connections>
+                                            <action selector="swipe:" destination="fVb-ys-Mjy" eventType="touchUpInside" id="iFt-Qb-ZBW"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YWi-L8-fZi">
+                                        <rect key="frame" x="92" y="0.0" width="38" height="30"/>
+                                        <state key="normal" title="Rides"/>
+                                        <connections>
+                                            <action selector="swipe:" destination="fVb-ys-Mjy" eventType="touchUpInside" id="8Wp-O0-fXZ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cvS-5y-V5Z">
+                                        <rect key="frame" x="180" y="0.0" width="100" height="30"/>
+                                        <state key="normal" title="Food Discount"/>
+                                        <connections>
+                                            <action selector="swipe:" destination="fVb-ys-Mjy" eventType="touchUpInside" id="OMi-ur-GRP"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6HF-20-cNN">
+                                        <rect key="frame" x="330" y="0.0" width="154" height="30"/>
+                                        <state key="normal" title="Merchandise Discount"/>
+                                        <connections>
+                                            <action selector="swipe:" destination="fVb-ys-Mjy" eventType="touchUpInside" id="eWk-q1-eP1"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Confirm the pass has the expected level of access when swiped at a kiosk" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="22C-Sw-6Iz">
+                                <rect key="frame" x="133" y="616" width="565" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="PzC-0B-1Nb"/>
                     </view>
+                    <connections>
+                        <outlet property="firstNameLabel" destination="2T4-Pp-rc5" id="6Ig-H3-kwX"/>
+                        <outlet property="foodDiscountLabel" destination="1PR-4h-t8U" id="4XW-45-wLf"/>
+                        <outlet property="merchDiscountLabel" destination="nuh-x2-4hf" id="naB-4S-2VB"/>
+                        <outlet property="passTypeLabel" destination="9mc-19-3eB" id="Wlc-8Z-ral"/>
+                        <outlet property="rideBenefit" destination="AWh-GB-piP" id="7L2-Sq-ntL"/>
+                        <outlet property="testResultBackground" destination="YN4-n2-rvR" id="rRW-9L-Gol"/>
+                        <outlet property="testResultLabel" destination="79s-at-15d" id="Vfm-oZ-eZf"/>
+                        <outletCollection property="accessTesting" destination="bMM-1Y-owF" collectionClass="NSMutableArray" id="1Ki-UC-0Cf"/>
+                        <outletCollection property="accessTesting" destination="bZg-ph-Orl" collectionClass="NSMutableArray" id="2mC-fx-E77"/>
+                        <outletCollection property="accessTesting" destination="3zW-q9-r4c" collectionClass="NSMutableArray" id="hSn-Ez-eWb"/>
+                        <outletCollection property="accessTesting" destination="mOQ-1c-J6t" collectionClass="NSMutableArray" id="bvC-xA-tDl"/>
+                        <outletCollection property="accessTesting" destination="j4f-00-jB6" collectionClass="NSMutableArray" id="O0F-7k-WB2"/>
+                        <outletCollection property="accessTesting" destination="YWi-L8-fZi" collectionClass="NSMutableArray" id="uCz-Gm-ckd"/>
+                        <outletCollection property="accessTesting" destination="cvS-5y-V5Z" collectionClass="NSMutableArray" id="0VI-qZ-Pmb"/>
+                        <outletCollection property="accessTesting" destination="6HF-20-cNN" collectionClass="NSMutableArray" id="RLB-gl-tt4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fSQ-pp-fux" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="855" y="16"/>
+            <point key="canvasLocation" x="854.67625899280586" y="15.577889447236181"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="FaceImageAsset" width="204" height="198"/>
+    </resources>
 </document>

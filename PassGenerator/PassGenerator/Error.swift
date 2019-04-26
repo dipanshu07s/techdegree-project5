@@ -19,4 +19,5 @@ enum PassError: String, Error {
     case invalidDateOfBirth = "Please provide appropriate Date of Birth"
     case companyMissing = "Please provide company"
     case projectMissing = "Please provide project"
+    case invalidPass
 }

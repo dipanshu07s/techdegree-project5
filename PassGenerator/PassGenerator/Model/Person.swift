@@ -19,6 +19,7 @@ class Person: Entrant {
     var city: String?
     var state: String?
     var zipCode: Int?
+    var passType: PassType?
     
     init(firstName: String?, lastName: String?, dateOfBirth: Date?, ssn: Int?, project: Int?, company: String?, streetAddress: String?, city: String?, state: String?, zipCode: Int?) {
         self.firstName = firstName
@@ -33,19 +34,19 @@ class Person: Entrant {
         self.zipCode = zipCode
     }
     
-    func swipe(_ pass: AmusementParkPass, on area: AreaAccess) {
+    func swipe(_ pass: AmusementParkPass, on area: AreaAccess) -> Bool {
         if pass.areaAccess.contains(area) {
-            print("Access Granted")
+            return true
         } else {
-            print("Access Denied")
+            return false
         }
     }
     
-    func swipe(_ pass: AmusementParkPass, for area: RideAccess) {
+    func swipe(_ pass: AmusementParkPass, for area: RideAccess) -> Bool {
         if pass.rideAccess.contains(area) {
-            print("You have this priviledge")
+            return true
         } else {
-            print("Sorry you cannot have this priviledge")
+            return false
         }
     }
 }

@@ -9,11 +9,10 @@
 import Foundation
 
 class Vendor: Person {
-    var vendorType: PassType
     
     init(firstName: String, lastName: String, dateOfBirth: Date, company: String) {
-        vendorType = .vendor(company: company)
         
         super.init(firstName: firstName, lastName: lastName, dateOfBirth: dateOfBirth, ssn: nil, project: nil, company: company, streetAddress: nil, city: nil, state: nil, zipCode: nil)
+        passType = .vendor(company: company)
     }
 }

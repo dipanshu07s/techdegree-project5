@@ -28,27 +28,29 @@ struct Pass {
         }
         
         let guest = ChildGuest(dateOfBirth: dateOfBirth)
-        let guestAreaAccess = guest.guestType.areaAccess()
-        let guestRideAccess = guest.guestType.rideAccess()
-        let guestDiscount = guest.guestType.discounts()
+        if let guestAreaAccess = guest.passType?.areaAccess(), let guestRideAccess = guest.passType?.rideAccess(), let guestDiscount = guest.passType?.discounts() {
+            return AmusementParkPass(entrant: guest, areaAccess: guestAreaAccess, rideAccess: guestRideAccess, discounts: guestDiscount)
+        }
         
-        return AmusementParkPass(entrant: guest, areaAccess: guestAreaAccess, rideAccess: guestRideAccess, discounts: guestDiscount)
+        throw PassError.invalidPass
     }
     
     static func createClassicGuestPassWith() throws -> AmusementParkPass {
         let guest = ClassicGuest()
-        let guestAreaAccess = guest.guestType.areaAccess()
-        let guestRideAccess = guest.guestType.rideAccess()
-        let guestDiscount = guest.guestType.discounts()
-        return AmusementParkPass(entrant: guest, areaAccess: guestAreaAccess, rideAccess: guestRideAccess, discounts: guestDiscount)
+        if let guestAreaAccess = guest.passType?.areaAccess(), let guestRideAccess = guest.passType?.rideAccess(), let guestDiscount = guest.passType?.discounts() {
+            return AmusementParkPass(entrant: guest, areaAccess: guestAreaAccess, rideAccess: guestRideAccess, discounts: guestDiscount)
+        }
+        
+        throw PassError.invalidPass
     }
     
     static func createVipGuestPassWith() throws -> AmusementParkPass {
         let guest = VIPGuest()
-        let guestAreaAccess = guest.guestType.areaAccess()
-        let guestRideAccess = guest.guestType.rideAccess()
-        let guestDiscount = guest.guestType.discounts()
-        return AmusementParkPass(entrant: guest, areaAccess: guestAreaAccess, rideAccess: guestRideAccess, discounts: guestDiscount)
+        if let guestAreaAccess = guest.passType?.areaAccess(), let guestRideAccess = guest.passType?.rideAccess(), let guestDiscount = guest.passType?.discounts() {
+            return AmusementParkPass(entrant: guest, areaAccess: guestAreaAccess, rideAccess: guestRideAccess, discounts: guestDiscount)
+        }
+        
+        throw PassError.invalidPass
     }
     
     static func createSeasonGuestPassWith(firstName: String?, lastName: String?, streetAddress: String?, city: String?, state: String?, zipCode: Int?) throws -> AmusementParkPass {
@@ -60,10 +62,11 @@ struct Pass {
         guard let zipCode = zipCode else { throw PassError.zipcodeMissing }
         
         let guest = SeasonGuest(firstName: firstName, lastName: lastName, streetAddress: streetAddress, city: city, state: state, zipCode: zipCode)
-        let guestAreaAccess = guest.guestType.areaAccess()
-        let guestRideAccess = guest.guestType.rideAccess()
-        let guestDiscount = guest.guestType.discounts()
-        return AmusementParkPass(entrant: guest, areaAccess: guestAreaAccess, rideAccess: guestRideAccess, discounts: guestDiscount)
+        if let guestAreaAccess = guest.passType?.areaAccess(), let guestRideAccess = guest.passType?.rideAccess(), let guestDiscount = guest.passType?.discounts() {
+            return AmusementParkPass(entrant: guest, areaAccess: guestAreaAccess, rideAccess: guestRideAccess, discounts: guestDiscount)
+        }
+        
+        throw PassError.invalidPass
     }
     
     static func createSeniorGuestPassWith(firstName: String?, lastName: String?, dateOfBirth: Date?) throws -> AmusementParkPass {
@@ -72,10 +75,11 @@ struct Pass {
         guard let dateOfBirth = dateOfBirth else { throw PassError.dateOfBirthMissing }
         
         let guest = SeniorGuest(firstName: firstName, lastName: lastName, dateOfBirth: dateOfBirth)
-        let guestAreaAccess = guest.guestType.areaAccess()
-        let guestRideAccess = guest.guestType.rideAccess()
-        let guestDiscount = guest.guestType.discounts()
-        return AmusementParkPass(entrant: guest, areaAccess: guestAreaAccess, rideAccess: guestRideAccess, discounts: guestDiscount)
+        if let guestAreaAccess = guest.passType?.areaAccess(), let guestRideAccess = guest.passType?.rideAccess(), let guestDiscount = guest.passType?.discounts() {
+            return AmusementParkPass(entrant: guest, areaAccess: guestAreaAccess, rideAccess: guestRideAccess, discounts: guestDiscount)
+        }
+        
+        throw PassError.invalidPass
     }
     
     static func createFoodServiceEmployeeWith(firstName: String?, lastName: String?, streetAddress: String?, city: String?, state: String?, zipCode: Int?) throws -> AmusementParkPass {
@@ -87,10 +91,11 @@ struct Pass {
         guard let zipCode = zipCode else { throw PassError.zipcodeMissing }
         
         let guest = FoodServiceEmployee(firstName: firstName, lastName: lastName, streetAddress: streetAddress, city: city, state: state, zipCode: zipCode)
-        let guestAreaAccess = guest.employeeType.areaAccess()
-        let guestRideAccess = guest.employeeType.rideAccess()
-        let guestDiscount = guest.employeeType.discounts()
-        return AmusementParkPass(entrant: guest, areaAccess: guestAreaAccess, rideAccess: guestRideAccess, discounts: guestDiscount)
+        if let guestAreaAccess = guest.passType?.areaAccess(), let guestRideAccess = guest.passType?.rideAccess(), let guestDiscount = guest.passType?.discounts() {
+            return AmusementParkPass(entrant: guest, areaAccess: guestAreaAccess, rideAccess: guestRideAccess, discounts: guestDiscount)
+        }
+        
+        throw PassError.invalidPass
     }
     
     static func createRideServiceEmployeeWith(firstName: String?, lastName: String?, streetAddress: String?, city: String?, state: String?, zipCode: Int?) throws -> AmusementParkPass {
@@ -102,10 +107,11 @@ struct Pass {
         guard let zipCode = zipCode else { throw PassError.zipcodeMissing }
         
         let guest = RideServiceEmployee(firstName: firstName, lastName: lastName, streetAddress: streetAddress, city: city, state: state, zipCode: zipCode)
-        let guestAreaAccess = guest.employeeType.areaAccess()
-        let guestRideAccess = guest.employeeType.rideAccess()
-        let guestDiscount = guest.employeeType.discounts()
-        return AmusementParkPass(entrant: guest, areaAccess: guestAreaAccess, rideAccess: guestRideAccess, discounts: guestDiscount)
+        if let guestAreaAccess = guest.passType?.areaAccess(), let guestRideAccess = guest.passType?.rideAccess(), let guestDiscount = guest.passType?.discounts() {
+            return AmusementParkPass(entrant: guest, areaAccess: guestAreaAccess, rideAccess: guestRideAccess, discounts: guestDiscount)
+        }
+        
+        throw PassError.invalidPass
     }
     
     static func createMaintenanceEmployeeWith(firstName: String?, lastName: String?, streetAddress: String?, city: String?, state: String?, zipCode: Int?) throws -> AmusementParkPass {
@@ -117,10 +123,11 @@ struct Pass {
         guard let zipCode = zipCode else { throw PassError.zipcodeMissing }
         
         let guest = MaintenanceEmployee(firstName: firstName, lastName: lastName, streetAddress: streetAddress, city: city, state: state, zipCode: zipCode)
-        let guestAreaAccess = guest.employeeType.areaAccess()
-        let guestRideAccess = guest.employeeType.rideAccess()
-        let guestDiscount = guest.employeeType.discounts()
-        return AmusementParkPass(entrant: guest, areaAccess: guestAreaAccess, rideAccess: guestRideAccess, discounts: guestDiscount)
+        if let guestAreaAccess = guest.passType?.areaAccess(), let guestRideAccess = guest.passType?.rideAccess(), let guestDiscount = guest.passType?.discounts() {
+            return AmusementParkPass(entrant: guest, areaAccess: guestAreaAccess, rideAccess: guestRideAccess, discounts: guestDiscount)
+        }
+        
+        throw PassError.invalidPass
     }
     
     static func createContractEmployeeWith(firstName: String?, lastName: String?, project: Int?, streetAddress: String?, city: String?, state: String?, zipCode: Int?) throws -> AmusementParkPass {
@@ -133,10 +140,11 @@ struct Pass {
         guard let project = project else { throw PassError.projectMissing }
         
         let guest = ContractEmployee(firstName: firstName, lastName: lastName, project: project, streetAddress: streetAddress, city: city, state: state, zipCode: zipCode)
-        let guestAreaAccess = guest.employeeType.areaAccess()
-        let guestRideAccess = guest.employeeType.rideAccess()
-        let guestDiscount = guest.employeeType.discounts()
-        return AmusementParkPass(entrant: guest, areaAccess: guestAreaAccess, rideAccess: guestRideAccess, discounts: guestDiscount)
+        if let guestAreaAccess = guest.passType?.areaAccess(), let guestRideAccess = guest.passType?.rideAccess(), let guestDiscount = guest.passType?.discounts() {
+            return AmusementParkPass(entrant: guest, areaAccess: guestAreaAccess, rideAccess: guestRideAccess, discounts: guestDiscount)
+        }
+        
+        throw PassError.invalidPass
     }
     
     static func createManagerWith(firstName: String?, lastName: String?, streetAddress: String?, city: String?, state: String?, zipCode: Int?) throws -> AmusementParkPass {
@@ -148,10 +156,11 @@ struct Pass {
         guard let zipCode = zipCode else { throw PassError.zipcodeMissing }
         
         let guest = Manager(firstName: firstName, lastName: lastName, streetAddress: streetAddress, city: city, state: state, zipCode: zipCode)
-        let guestAreaAccess = guest.managerType.areaAccess()
-        let guestRideAccess = guest.managerType.rideAccess()
-        let guestDiscount = guest.managerType.discounts()
-        return AmusementParkPass(entrant: guest, areaAccess: guestAreaAccess, rideAccess: guestRideAccess, discounts: guestDiscount)
+        if let guestAreaAccess = guest.passType?.areaAccess(), let guestRideAccess = guest.passType?.rideAccess(), let guestDiscount = guest.passType?.discounts() {
+            return AmusementParkPass(entrant: guest, areaAccess: guestAreaAccess, rideAccess: guestRideAccess, discounts: guestDiscount)
+        }
+        
+        throw PassError.invalidPass
     }
     
     static func createVendorWith(firstName: String?, lastName: String?, company: String?, dateOfBirth: Date?) throws -> AmusementParkPass {
@@ -161,9 +170,10 @@ struct Pass {
         guard let dateOfBirth = dateOfBirth else { throw PassError.dateOfBirthMissing }
         
         let guest = Vendor(firstName: firstName, lastName: lastName, dateOfBirth: dateOfBirth, company: company)
-        let guestAreaAccess = guest.vendorType.areaAccess()
-        let guestRideAccess = guest.vendorType.rideAccess()
-        let guestDiscount = guest.vendorType.discounts()
-        return AmusementParkPass(entrant: guest, areaAccess: guestAreaAccess, rideAccess: guestRideAccess, discounts: guestDiscount)
+        if let guestAreaAccess = guest.passType?.areaAccess(), let guestRideAccess = guest.passType?.rideAccess(), let guestDiscount = guest.passType?.discounts() {
+            return AmusementParkPass(entrant: guest, areaAccess: guestAreaAccess, rideAccess: guestRideAccess, discounts: guestDiscount)
+        }
+        
+        throw PassError.invalidPass
     }
 }

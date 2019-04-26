@@ -101,7 +101,7 @@ class ViewController: UIViewController {
             return
         }
         
-        var pass: AmusementParkPass? = nil
+        var pass: AmusementParkPass
         
         do {
             try hasData()
@@ -129,11 +129,20 @@ class ViewController: UIViewController {
             case .contract(_):
                 pass = try Pass.createContractEmployeeWith(firstName: firstNameField, lastName: lastNameField, project: projectField, streetAddress: streetAddressField, city: cityField, state: streetAddressField, zipCode: zipCodeField)
             }
+            
+            performSegue(withIdentifier: "PassDetail", sender: pass)
+            
         } catch let error {
             print(error.localizedDescription)
         }
-        
-        print(pass)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "PassDetail" {
+            if let destination = segue.destination as? PassDetailViewController, let pass = sender as? AmusementParkPass {
+                destination.pass = pass
+            }
+        }
     }
     
     
