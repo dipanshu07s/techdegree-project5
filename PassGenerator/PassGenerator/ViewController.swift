@@ -84,7 +84,7 @@ class ViewController: UIViewController {
     @IBAction func selectedSubCategory(_ sender: UIButton) {
         let buttons = subCategory.arrangedSubviews.map({ $0 as! UIButton })
         guard let category = selectedCategory else {
-            // FIXME: - Add an alert
+            showAlertWith(message: "Please select a subcategory", title: "Invalid subcategory")
             return
         }
         for (index, button) in buttons.enumerated() {
@@ -94,17 +94,24 @@ class ViewController: UIViewController {
         }
     }
     
+    func showAlertWith(message: String, title: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        alert.addAction(action)
+        present(alert, animated: true)
+    }
+    
     
     @IBAction func generatePass(_ sender: Any) {
         guard let type = selectedPass else {
-            // FIXME: - Throw an error
+            showAlertWith(message: "Please select a category", title: "Invalid category")
             return
         }
         
         var pass: AmusementParkPass
         
         do {
-            try hasData()
+            try hasData(populatedData: false)
             switch type {
             case .classic:
                 pass = try Pass.createClassicGuestPassWith()
@@ -132,8 +139,28 @@ class ViewController: UIViewController {
             
             performSegue(withIdentifier: "PassDetail", sender: pass)
             
-        } catch let error {
-            print(error.localizedDescription)
+        } catch PassError.cityMissing {
+            showAlertWith(message: "Please enter a city address", title: "Invalid city")
+        } catch PassError.companyMissing {
+            showAlertWith(message: "Please enter a company name", title: "Invalid company")
+        } catch PassError.dateOfBirthMissing {
+            showAlertWith(message: "Please provide a date of birth", title: "Invaid data of birth")
+        } catch PassError.firstNameMissing {
+            showAlertWith(message: "Please provide a first name", title: "Invalid first name")
+        } catch PassError.invalidDateOfBirth {
+            showAlertWith(message: "Date of birth is in wrong format", title: "Invalid date of birth")
+        } catch PassError.lastNameMissing {
+            showAlertWith(message: "Please provide a last name", title: "Invalid last name")
+        } catch PassError.projectMissing {
+            showAlertWith(message: "Please provide a project", title: "Invalid project")
+        } catch PassError.stateMissing {
+            showAlertWith(message: "Please provide a state address", title: "Invalid state")
+        } catch PassError.streetAddressMissing {
+            showAlertWith(message: "Please provide a street address", title: "Invaid street address")
+        } catch PassError.zipcodeMissing {
+            showAlertWith(message: "Please provide a zip code", title: "Invalid zip code")
+        } catch {
+            fatalError()
         }
     }
     
@@ -147,64 +174,109 @@ class ViewController: UIViewController {
     
     
     @IBAction func populateData(_ sender: Any) {
-        
+        try! hasData(populatedData: true)
     }
     
-    func hasData() throws {
+    func hasData(populatedData: Bool) throws {
         if firstName.isEnabled {
-            guard let name = firstName.text else {
-                throw PassError.firstNameMissing
+            if populatedData {
+                firstNameField = RandomData.firstName
+            } else {
+                guard let name = firstName.text else {
+                    throw PassError.firstNameMissing
+                }
+                firstNameField = name
             }
-            firstNameField = name
+            
         }
         if lastName.isEnabled {
-            guard let lastName = lastName.text else {
-                throw PassError.lastNameMissing
+            if populatedData {
+                lastNameField = RandomData.lastName
+            } else {
+                guard let lastName = lastName.text else {
+                    throw PassError.lastNameMissing
+                }
+                lastNameField = lastName
             }
-            lastNameField = lastName
+            
         }
         if dateOfBirth.isEnabled {
-            guard let dateOfBirth = dateOfBirth.text else {
-                throw PassError.dateOfBirthMissing
+            if populatedData {
+                dateOfBirthField = RandomData.dateOfBirth
+            } else {
+                guard let dateOfBirth = dateOfBirth.text else {
+                    throw PassError.dateOfBirthMissing
+                }
+                let formatter = DateFormatter()
+                formatter.dateFormat = "MM/dd/yyyy"
+                formatter.locale = Locale.current
+                if let date = formatter.date(from: dateOfBirth) {
+                    dateOfBirthField = date
+                } else {
+                    throw PassError.invalidDateOfBirth
+                }
             }
-            // FIXME: - Date of birth
-            dateOfBirthField = Date()
+            
         }
         if streetAddress.isEnabled {
-            guard let streetAddress = streetAddress.text else {
-                throw PassError.streetAddressMissing
+            if populatedData {
+                streetAddressField = RandomData.streetAddress
+            } else {
+                guard let streetAddress = streetAddress.text else {
+                    throw PassError.streetAddressMissing
+                }
+                streetAddressField = streetAddress
             }
-            streetAddressField = streetAddress
+            
         }
         if city.isEnabled {
-            guard let city = city.text else {
-                throw PassError.cityMissing
+            if populatedData {
+                cityField = RandomData.city
+            } else {
+                guard let city = city.text else {
+                    throw PassError.cityMissing
+                }
+                cityField = city
             }
-            cityField = city
+            
         }
         if state.isEnabled {
-            guard let state = state.text else {
-                throw PassError.stateMissing
+            if populatedData {
+                stateField = RandomData.state
+            } else {
+                guard let state = state.text else {
+                    throw PassError.stateMissing
+                }
+                stateField = state
             }
-            stateField = state
+            
         }
         if zipCode.isEnabled {
-            guard let zipCode = zipCode.text, let zip = Int(zipCode) else {
-                throw PassError.zipcodeMissing
+            if populatedData {
+                zipCodeField = RandomData.zipCode
+            } else {
+                guard let zipCode = zipCode.text, let zip = Int(zipCode) else {
+                    throw PassError.zipcodeMissing
+                }
+                zipCodeField = zip
             }
-            zipCodeField = zip
+            
         }
         if company.isEnabled {
-            guard let company = company.text else {
-                throw PassError.companyMissing
+            if populatedData {
+                companyField = RandomData.company
+            } else {
+                guard let company = company.text else {
+                    throw PassError.companyMissing
+                }
+                companyField = company
             }
-            companyField = company
+            
         }
     }
     
     func setSubcategoryTitlesFor(_ category: [PassType]?) {
         guard let category = category else {
-            // FIXME: - Throw an error
             return
         }
         
@@ -238,7 +310,6 @@ class ViewController: UIViewController {
     
     func enableTextFieldFor(_ type: PassType?) {
         guard let type = type else {
-            // FIXME: - Throw an error
             return
         }
         switch type {

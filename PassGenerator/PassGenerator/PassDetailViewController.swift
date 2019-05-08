@@ -18,7 +18,7 @@ class PassDetailViewController: UIViewController {
     @IBOutlet weak var merchDiscountLabel: UILabel!
     @IBOutlet weak var testResultLabel: UILabel!
     @IBOutlet weak var testResultBackground: UIView!
-    
+    @IBOutlet weak var birthdayLabel: UILabel!
     
     @IBOutlet var accessTesting: [UIButton]!
     
@@ -26,6 +26,10 @@ class PassDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        firstNameLabel.isHidden = true
+        birthdayLabel.isHidden = true
+        foodDiscountLabel.isHidden = true
+        merchDiscountLabel.isHidden = true
         
         if let pass = pass, let passType = pass.entrant.passType {
             if let firstName = pass.entrant.firstName {
@@ -33,16 +37,22 @@ class PassDetailViewController: UIViewController {
                 firstNameLabel.text = firstName
             }
             
-            let foodDiscount = pass.discounts[0]
-            let merchDiscount = pass.discounts[1]
-            switch foodDiscount {
-            case .food(let percentage): foodDiscountLabel.text = "\(percentage)% discount on food"
-            default: break
+            if pass.discounts.count > 0 {
+                foodDiscountLabel.isHidden = false
+                let foodDiscount = pass.discounts[0]
+                switch foodDiscount {
+                case .food(let percentage): foodDiscountLabel.text = "\(percentage)% discount on food"
+                default: break
+                }
             }
             
-            switch merchDiscount {
-            case .merchandise(let percentage): merchDiscountLabel.text = "\(percentage)% discount on merchandise"
-            default: break
+            if pass.discounts.count > 1 {
+                merchDiscountLabel.isHidden = false
+                let merchDiscount = pass.discounts[1]
+                switch merchDiscount {
+                case .merchandise(let percentage): merchDiscountLabel.text = "\(percentage)% discount on merchandise"
+                default: break
+                }
             }
             
             switch passType {
@@ -60,6 +70,15 @@ class PassDetailViewController: UIViewController {
             }
         }
         
+        if let birthday = pass?.entrant.dateOfBirth {
+            
+            let calender = Calendar(identifier: .gregorian)
+            let day = calender.component(.day, from: birthday)
+            let month = calender.component(.month, from: birthday)
+            if Date.isBirthday(day: day, month: month) {
+                birthdayLabel.isHidden = false
+            }
+        }
     }
     
 

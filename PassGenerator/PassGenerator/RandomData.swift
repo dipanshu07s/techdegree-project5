@@ -11,5 +11,12 @@ import Foundation
 struct RandomData {
     static var firstName: String = "Jon"
     static var lastName: String = "Snow"
-    static var streetAddress: String = "123"
+    static var dateOfBirth: Date = try! Date.createDateOfBirthWith(day: 1, month: 1, year: 1996)
+    static var ssn: Int = 1234
+    static var project: Int = 1234
+    static var company: String = "King in the north"
+    static var streetAddress: String = "Castle"
+    static var city: String = "Winterfell"
+    static var state: String = "North"
+    static var zipCode: Int = 12345
 }
