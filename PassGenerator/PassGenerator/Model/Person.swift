@@ -9,6 +9,8 @@
 import Foundation
 
 class Person: Entrant {
+    
+    
     var firstName: String?
     var lastName: String?
     var dateOfBirth: Date?
@@ -44,6 +46,14 @@ class Person: Entrant {
     
     func swipe(_ pass: AmusementParkPass, for area: RideAccess) -> Bool {
         if pass.rideAccess.contains(area) {
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    func swipe(_ pass: AmusementParkPass, for discount: Discounts) -> Bool {
+        if pass.discounts.contains(discount) {
             return true
         } else {
             return false

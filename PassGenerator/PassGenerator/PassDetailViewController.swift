@@ -19,8 +19,9 @@ class PassDetailViewController: UIViewController {
     @IBOutlet weak var testResultLabel: UILabel!
     @IBOutlet weak var testResultBackground: UIView!
     @IBOutlet weak var birthdayLabel: UILabel!
-    
     @IBOutlet var accessTesting: [UIButton]!
+    
+    
     
     var pass: AmusementParkPass?
 
@@ -84,16 +85,23 @@ class PassDetailViewController: UIViewController {
 
     @IBAction func swipe(_ sender: UIButton) {
         guard let pass = pass else { return }
-        switch sender {
-        case accessTesting[0]: accessGranted(pass.entrant.swipe(pass, on: .amusement))
-        case accessTesting[1]: accessGranted(pass.entrant.swipe(pass, on: .kitchen))
-            case accessTesting[2]: accessGranted(pass.entrant.swipe(pass, on: .rideControl))
-        case accessTesting[3]: accessGranted(pass.entrant.swipe(pass, on: .maintenance))
-        case accessTesting[4]: accessGranted(pass.entrant.swipe(pass, on: .office))
-        case accessTesting[5]: accessGranted(pass.entrant.swipe(pass, for: .allRides))
-        case accessTesting[6]: accessGranted(pass.entrant.swipe(pass, on: .amusement))
-        case accessTesting[7]: accessGranted(pass.entrant.swipe(pass, on: .amusement))
-        default: break
+        
+        if sender === accessTesting[0] {
+            accessGranted(pass.entrant.swipe(pass, on: .amusement))
+        } else if sender === accessTesting[1] {
+            accessGranted(pass.entrant.swipe(pass, on: .kitchen))
+        } else if sender === accessTesting[2] {
+            accessGranted(pass.entrant.swipe(pass, on: .rideControl))
+        } else if sender === accessTesting[3] {
+            accessGranted(pass.entrant.swipe(pass, on: .maintenance))
+        } else if sender === accessTesting[4] {
+            accessGranted(pass.entrant.swipe(pass, on: .office))
+        } else if sender === accessTesting[5] {
+            accessGranted(pass.entrant.swipe(pass, for: .allRides))
+        } else if sender === accessTesting[6] {
+            accessGranted(!pass.discounts.isEmpty)
+        } else if sender === accessTesting[7] {
+            accessGranted(!pass.discounts.isEmpty)
         }
     }
     
@@ -101,11 +109,11 @@ class PassDetailViewController: UIViewController {
         if granted {
             testResultLabel.text = "Access Granted"
             testResultBackground.backgroundColor = .green
-            SoundEffect.playSound(with: SoundEffect.correctSound)
+            SoundEffect.playCorrectSystemSound()
         } else {
             testResultLabel.text = "Access Denied"
             testResultBackground.backgroundColor = .red
-            SoundEffect.playSound(with: SoundEffect.incorrectSound)
+            SoundEffect.playInCorrectSystemSound()
         }
     }
     

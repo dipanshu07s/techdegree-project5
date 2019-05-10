@@ -13,19 +13,17 @@ class SoundEffect {
     static var correctSound: SystemSoundID = 0
     static var incorrectSound: SystemSoundID = 0
     
-    static func loadCorrectSystemSound() {
+    static func playCorrectSystemSound() {
         let path = Bundle.main.path(forResource: "AccessGranted", ofType: "wav")!
         let soundURL = URL(fileURLWithPath: path)
         AudioServicesCreateSystemSoundID(soundURL as CFURL, &correctSound)
+        AudioServicesPlaySystemSound(correctSound)
     }
     
-    static func loadInCorrectSystemSound() {
-        let path = Bundle.main.path(forResource: "AccessGranted", ofType: "wav")!
+    static func playInCorrectSystemSound() {
+        let path = Bundle.main.path(forResource: "AccessDenied", ofType: "wav")!
         let soundURL = URL(fileURLWithPath: path)
         AudioServicesCreateSystemSoundID(soundURL as CFURL, &incorrectSound)
-    }
-    
-    static func playSound(with systemID: SystemSoundID) {
-        AudioServicesPlaySystemSound(systemID)
+        AudioServicesPlaySystemSound(incorrectSound)
     }
 }
