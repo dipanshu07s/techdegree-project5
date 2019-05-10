@@ -101,9 +101,11 @@ class PassDetailViewController: UIViewController {
         if granted {
             testResultLabel.text = "Access Granted"
             testResultBackground.backgroundColor = .green
+            SoundEffect.playSound(with: SoundEffect.correctSound)
         } else {
             testResultLabel.text = "Access Denied"
             testResultBackground.backgroundColor = .red
+            SoundEffect.playSound(with: SoundEffect.incorrectSound)
         }
     }
     
