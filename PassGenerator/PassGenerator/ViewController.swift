@@ -35,10 +35,15 @@ class ViewController: UIViewController {
         "Vendor": [.vendor(company: "")]
     ]
     
-    var selectedCategory: [PassType]?
+    var selectedCategory: [PassType]? {
+        didSet {
+            clearTextField()
+        }
+    }
     var selectedPass: PassType? {
         didSet {
             enableTextFieldFor(selectedPass)
+            clearTextField()
         }
     }
     
@@ -99,6 +104,19 @@ class ViewController: UIViewController {
         let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
         alert.addAction(action)
         present(alert, animated: true)
+    }
+    
+    func clearTextField() {
+        firstName.text = nil
+        lastName.text = nil
+        dateOfBirth.text = nil
+        ssn.text = nil
+        project.text = nil
+        company.text = nil
+        streetAddress.text = nil
+        city.text = nil
+        state.text = nil
+        zipCode.text = nil
     }
     
     
@@ -168,6 +186,7 @@ class ViewController: UIViewController {
         if segue.identifier == "PassDetail" {
             if let destination = segue.destination as? PassDetailViewController, let pass = sender as? AmusementParkPass {
                 destination.pass = pass
+                destination.delegate = self
             }
         }
     }
@@ -181,6 +200,7 @@ class ViewController: UIViewController {
         if firstName.isEnabled {
             if populatedData {
                 firstNameField = RandomData.firstName
+                firstName.text = firstNameField!
             } else {
                 guard let name = firstName.text else {
                     throw PassError.firstNameMissing
@@ -192,6 +212,7 @@ class ViewController: UIViewController {
         if lastName.isEnabled {
             if populatedData {
                 lastNameField = RandomData.lastName
+                lastName.text = lastNameField!
             } else {
                 guard let lastName = lastName.text else {
                     throw PassError.lastNameMissing
@@ -203,6 +224,10 @@ class ViewController: UIViewController {
         if dateOfBirth.isEnabled {
             if populatedData {
                 dateOfBirthField = RandomData.dateOfBirth
+                let formatter = DateFormatter()
+                formatter.dateFormat = "MM/dd/yyyy"
+                let myString = formatter.string(from: dateOfBirthField!)
+                dateOfBirth.text = myString
             } else {
                 guard let dateOfBirth = dateOfBirth.text else {
                     throw PassError.dateOfBirthMissing
@@ -221,6 +246,7 @@ class ViewController: UIViewController {
         if streetAddress.isEnabled {
             if populatedData {
                 streetAddressField = RandomData.streetAddress
+                streetAddress.text = streetAddressField!
             } else {
                 guard let streetAddress = streetAddress.text else {
                     throw PassError.streetAddressMissing
@@ -232,6 +258,7 @@ class ViewController: UIViewController {
         if city.isEnabled {
             if populatedData {
                 cityField = RandomData.city
+                city.text = cityField!
             } else {
                 guard let city = city.text else {
                     throw PassError.cityMissing
@@ -243,6 +270,7 @@ class ViewController: UIViewController {
         if state.isEnabled {
             if populatedData {
                 stateField = RandomData.state
+                state.text = stateField!
             } else {
                 guard let state = state.text else {
                     throw PassError.stateMissing
@@ -254,6 +282,7 @@ class ViewController: UIViewController {
         if zipCode.isEnabled {
             if populatedData {
                 zipCodeField = RandomData.zipCode
+                zipCode.text = String(zipCodeField!)
             } else {
                 guard let zipCode = zipCode.text, let zip = Int(zipCode) else {
                     throw PassError.zipcodeMissing
@@ -265,13 +294,25 @@ class ViewController: UIViewController {
         if company.isEnabled {
             if populatedData {
                 companyField = RandomData.company
+                company.text = companyField!
             } else {
                 guard let company = company.text else {
                     throw PassError.companyMissing
                 }
                 companyField = company
             }
-            
+        }
+        
+        if project.isEnabled {
+            if populatedData {
+                projectField = RandomData.project
+                project.text = String(projectField!)
+            } else {
+                guard let stringProject = project.text, let project = Int(stringProject)  else {
+                    throw PassError.projectMissing
+                }
+                projectField = project
+            }
         }
     }
     
@@ -334,5 +375,15 @@ class ViewController: UIViewController {
         zipCode.isEnabled = zipField
     }
 
+}
+
+extension ViewController: PassDetailDelegate {
+    func generateNewPass(_ passDetail: PassDetailViewController) {
+        selectedPass = nil
+        selectedCategory = nil
+        clearTextField()
+    }
+    
+    
 }
 

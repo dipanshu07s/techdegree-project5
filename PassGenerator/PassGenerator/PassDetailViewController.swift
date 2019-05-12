@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol PassDetailDelegate: class {
+    func generateNewPass(_ passDetail: PassDetailViewController)
+}
+
 class PassDetailViewController: UIViewController {
     
     
@@ -21,7 +25,7 @@ class PassDetailViewController: UIViewController {
     @IBOutlet weak var birthdayLabel: UILabel!
     @IBOutlet var accessTesting: [UIButton]!
     
-    
+    weak var delegate: PassDetailDelegate?
     
     var pass: AmusementParkPass?
 
@@ -35,6 +39,7 @@ class PassDetailViewController: UIViewController {
         if let pass = pass, let passType = pass.entrant.passType {
             if let firstName = pass.entrant.firstName {
                 firstNameLabel.isHidden = false
+                print(firstName)
                 firstNameLabel.text = firstName
             }
             
@@ -99,7 +104,7 @@ class PassDetailViewController: UIViewController {
         } else if sender === accessTesting[5] {
             accessGranted(pass.entrant.swipe(pass, for: .allRides))
         } else if sender === accessTesting[6] {
-            accessGranted(!pass.discounts.isEmpty)
+            accessGranted(pass.entrant.swipe(pass, for: .skipAllLines))
         } else if sender === accessTesting[7] {
             accessGranted(!pass.discounts.isEmpty)
         }
@@ -118,7 +123,10 @@ class PassDetailViewController: UIViewController {
     }
     
     @IBAction func createNewPass(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+        
+        dismiss(animated: true) {
+            self.delegate?.generateNewPass(self)
+        }
     }
     
 }

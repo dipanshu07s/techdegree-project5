@@ -387,43 +387,40 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="M0X-Qg-1cB">
-                                        <rect key="frame" x="25" y="68" width="399" height="198.5"/>
+                                        <rect key="frame" x="25" y="68" width="413.5" height="255.5"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FaceImageAsset" translatesAutoresizingMaskIntoConstraints="NO" id="siw-Mg-6dW">
-                                                <rect key="frame" x="0.0" y="0.0" width="204" height="198.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="204" height="255.5"/>
                                             </imageView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="OcZ-qz-8Fu">
-                                                <rect key="frame" x="254" y="0.0" width="145" height="198.5"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="OcZ-qz-8Fu">
+                                                <rect key="frame" x="254" y="0.0" width="159.5" height="255.5"/>
                                                 <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="lBe-mo-abD">
-                                                        <rect key="frame" x="0.0" y="0.0" width="145" height="101.5"/>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="lBe-mo-abD">
+                                                        <rect key="frame" x="0.0" y="0.0" width="145" height="77.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2T4-Pp-rc5">
-                                                                <rect key="frame" x="0.0" y="0.0" width="45" height="20.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="145" height="20.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Classic Guest Pass" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9mc-19-3eB">
-                                                                <rect key="frame" x="0.0" y="40.5" width="145" height="20.5"/>
+                                                                <rect key="frame" x="0.0" y="28.5" width="145" height="20.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Happy Birthday" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wTh-9G-fV0">
-                                                                <rect key="frame" x="0.0" y="81" width="118.5" height="20.5"/>
+                                                                <rect key="frame" x="0.0" y="57" width="145" height="20.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                         </subviews>
-                                                        <constraints>
-                                                            <constraint firstItem="9mc-19-3eB" firstAttribute="firstBaseline" secondItem="2T4-Pp-rc5" secondAttribute="firstBaseline" id="v8Y-Cj-5WH"/>
-                                                        </constraints>
                                                     </stackView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="UpN-1x-GNd">
-                                                        <rect key="frame" x="0.0" y="178" width="145" height="20.5"/>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="UpN-1x-GNd">
+                                                        <rect key="frame" x="0.0" y="178" width="159.5" height="77.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unlimited Rides" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AWh-GB-piP">
                                                                 <rect key="frame" x="0.0" y="0.0" width="119.5" height="20.5"/>
@@ -431,23 +428,19 @@
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10% Food Discount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1PR-4h-t8U">
-                                                                <rect key="frame" x="0.0" y="0.0" width="147.5" height="0.0"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10% Food Discount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1PR-4h-t8U">
+                                                                <rect key="frame" x="0.0" y="28.5" width="147.5" height="20.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20% Merch Discount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nuh-x2-4hf">
-                                                                <rect key="frame" x="0.0" y="0.0" width="159.5" height="0.0"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20% Merch Discount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nuh-x2-4hf">
+                                                                <rect key="frame" x="0.0" y="57" width="159.5" height="20.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                         </subviews>
-                                                        <constraints>
-                                                            <constraint firstItem="AWh-GB-piP" firstAttribute="firstBaseline" secondItem="1PR-4h-t8U" secondAttribute="firstBaseline" id="Ykm-3J-RrU"/>
-                                                            <constraint firstItem="AWh-GB-piP" firstAttribute="firstBaseline" secondItem="nuh-x2-4hf" secondAttribute="firstBaseline" id="eT2-2a-UCq"/>
-                                                        </constraints>
                                                     </stackView>
                                                 </subviews>
                                                 <constraints>
@@ -573,32 +566,32 @@
                                                     <action selector="swipe:" destination="fVb-ys-Mjy" eventType="touchUpInside" id="8Wp-O0-fXZ"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cvS-5y-V5Z">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xcD-gf-bC3">
                                                 <rect key="frame" x="400" y="0.0" width="150" height="50"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="150" id="1oa-xz-GAC"/>
-                                                    <constraint firstAttribute="height" constant="50" id="V5c-4v-eCH"/>
+                                                    <constraint firstAttribute="height" constant="50" id="aSN-dc-quo"/>
+                                                    <constraint firstAttribute="width" constant="150" id="ypr-VV-BIB"/>
                                                 </constraints>
-                                                <state key="normal" title="Food Discount">
+                                                <state key="normal" title="Skip all lines">
                                                     <color key="titleColor" red="0.3411764706" green="0.58431372550000005" blue="0.5568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="swipe:" destination="fVb-ys-Mjy" eventType="touchUpInside" id="OMi-ur-GRP"/>
+                                                    <action selector="swipe:" destination="fVb-ys-Mjy" eventType="touchUpInside" id="wh6-oi-wrI"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6HF-20-cNN">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TZc-er-cNU">
                                                 <rect key="frame" x="600" y="0.0" width="150" height="50"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="150" id="DBc-uf-xm0"/>
-                                                    <constraint firstAttribute="height" constant="50" id="UOd-aF-zK6"/>
+                                                    <constraint firstAttribute="height" constant="50" id="2Vu-CV-Tyo"/>
+                                                    <constraint firstAttribute="width" constant="150" id="z19-fc-u3q"/>
                                                 </constraints>
-                                                <state key="normal" title="Merchandise Discount">
+                                                <state key="normal" title="Discounts">
                                                     <color key="titleColor" red="0.3411764706" green="0.58431372550000005" blue="0.5568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="swipe:" destination="fVb-ys-Mjy" eventType="touchUpInside" id="eWk-q1-eP1"/>
+                                                    <action selector="swipe:" destination="fVb-ys-Mjy" eventType="touchUpInside" id="iQV-d6-WfI"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -657,8 +650,8 @@
                         <outletCollection property="accessTesting" destination="mOQ-1c-J6t" collectionClass="NSMutableArray" id="1ku-MD-UcF"/>
                         <outletCollection property="accessTesting" destination="j4f-00-jB6" collectionClass="NSMutableArray" id="sbn-km-ZMM"/>
                         <outletCollection property="accessTesting" destination="YWi-L8-fZi" collectionClass="NSMutableArray" id="Woj-qT-nat"/>
-                        <outletCollection property="accessTesting" destination="cvS-5y-V5Z" collectionClass="NSMutableArray" id="sor-HP-7P2"/>
-                        <outletCollection property="accessTesting" destination="6HF-20-cNN" collectionClass="NSMutableArray" id="b6d-Lz-ePQ"/>
+                        <outletCollection property="accessTesting" destination="xcD-gf-bC3" collectionClass="NSMutableArray" id="1yr-LH-vgi"/>
+                        <outletCollection property="accessTesting" destination="TZc-er-cNU" collectionClass="NSMutableArray" id="qcO-hA-gfa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fSQ-pp-fux" userLabel="First Responder" sceneMemberID="firstResponder"/>
