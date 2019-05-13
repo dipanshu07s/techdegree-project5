@@ -25,12 +25,15 @@ class Guest: Person {
             })
             
             if seconds == 5 {
+                print("granted!!!")
                 return true
             } else {
+                print("wait!!!")
                 return false
             }
             
         } else {
+            print("Denied!!!")
             return false
         }
     }

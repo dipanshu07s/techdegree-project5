@@ -38,6 +38,7 @@ struct Pass {
     static func createClassicGuestPassWith() throws -> AmusementParkPass {
         let guest = ClassicGuest()
         if let guestAreaAccess = guest.passType?.areaAccess(), let guestRideAccess = guest.passType?.rideAccess(), let guestDiscount = guest.passType?.discounts() {
+            print(guestAreaAccess)
             return AmusementParkPass(entrant: guest, areaAccess: guestAreaAccess, rideAccess: guestRideAccess, discounts: guestDiscount)
         }
         
